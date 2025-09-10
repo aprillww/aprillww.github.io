@@ -1,5 +1,17 @@
 // Miss Li Personal Brand Website JavaScript
 
+// EmailJS Configuration
+const EMAILJS_CONFIG = {
+  publicKey: 'DYURVWb1P5eK19AD4',
+  serviceId: 'service_cj4kgy6',
+  templateId: 'template_0riwfad'
+};
+
+// Initialize EmailJS
+(function() {
+  emailjs.init(EMAILJS_CONFIG.publicKey);
+})();
+
 // Smooth scrolling function
 function scrollToSection(sectionId) {
   const element = document.getElementById(sectionId);
@@ -32,31 +44,93 @@ function toggleMobileMenu() {
   }
 }
 
-// Form submission handler
+// Form submission handler with EmailJS
 function handleFormSubmit(event) {
   event.preventDefault();
   
+  const form = event.target;
+  const submitBtn = document.getElementById('submit-btn');
+  const submitText = document.getElementById('submit-text');
+  const statusDiv = document.getElementById('form-status');
+  
   // Get form data
-  const formData = new FormData(event.target);
+  const formData = new FormData(form);
   const data = {
-    name: formData.get('name'),
+    from_name: formData.get('from_name'),
     phone: formData.get('phone'),
-    email: formData.get('email'),
+    from_email: formData.get('from_email'),
     service: formData.get('service'),
     message: formData.get('message')
   };
   
   // Validate required fields
-  if (!data.name || !data.phone || !data.service) {
-    alert('请填写必填项目！\nPlease fill in all required fields!');
+  if (!data.from_name || !data.phone || !data.service) {
+    showFormStatus('error', '请填写必填项目！\nPlease fill in all required fields!');
     return;
   }
   
-  // Show success message
-  alert(`感谢您的预约！我们将尽快与您联系。\n\nThank you for your booking! We will contact you soon.\n\n预约信息：\nBooking Details:\n姓名/Name: ${data.name}\n电话/Phone: ${data.phone}\n服务类型/Service: ${data.service}`);
+  // Show loading state
+  showFormStatus('loading', '正在发送邮件，请稍候...\nSending email, please wait...');
+  submitBtn.classList.add('loading');
+  submitBtn.disabled = true;
+  submitText.innerHTML = '<i class="fas fa-spinner"></i> 发送中... Sending...';
   
-  // Reset form
-  event.target.reset();
+  // Prepare email template parameters
+  const templateParams = {
+    from_name: data.from_name,
+    from_email: data.from_email || '未提供',
+    phone: data.phone,
+    service: data.service,
+    message: data.message || '无额外留言',
+    to_email: 'smlshangwuyingyu@soulmately.info',
+    reply_to: data.from_email || 'noreply@example.com'
+  };
+  
+  // Send email using EmailJS
+  emailjs.send(
+    EMAILJS_CONFIG.serviceId,
+    EMAILJS_CONFIG.templateId,
+    templateParams
+  )
+  .then(function(response) {
+    console.log('Email sent successfully:', response);
+    showFormStatus('success', 
+      `预约提交成功！我们将尽快与您联系。\n\nBooking submitted successfully! We will contact you soon.\n\n预约信息：\nBooking Details:\n姓名/Name: ${data.from_name}\n电话/Phone: ${data.phone}\n服务类型/Service: ${data.service}`
+    );
+    
+    // Reset form after successful submission
+    form.reset();
+  })
+  .catch(function(error) {
+    console.error('Email sending failed:', error);
+    showFormStatus('error', 
+      '发送失败，请稍后重试或直接联系我们。\nSending failed, please try again later or contact us directly.\n\n错误信息: ' + (error.text || error.message || '未知错误')
+    );
+  })
+  .finally(function() {
+    // Reset button state
+    submitBtn.classList.remove('loading');
+    submitBtn.disabled = false;
+    submitText.innerHTML = '<i class="fas fa-paper-plane"></i> 提交预约 Submit Booking';
+  });
+}
+
+// Show form status message
+function showFormStatus(type, message) {
+  const statusDiv = document.getElementById('form-status');
+  statusDiv.className = `form-status ${type}`;
+  statusDiv.textContent = message;
+  statusDiv.style.display = 'block';
+  
+  // Auto-hide success messages after 10 seconds
+  if (type === 'success') {
+    setTimeout(() => {
+      statusDiv.style.display = 'none';
+    }, 10000);
+  }
+  
+  // Scroll to status message
+  statusDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
 // Intersection Observer for fade-in animations
@@ -174,7 +248,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   // Form submission event listener
-  const contactForm = document.querySelector('#contact form');
+  const contactForm = document.getElementById('contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', handleFormSubmit);
   }
@@ -205,3 +279,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Export functions for global use
 window.scrollToSection = scrollToSection;
+
+// WeChat QR Code Modal Functions
+function showWeChatQR() {
+  const modal = document.getElementById('wechatModal');
+  if (modal) {
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+  }
+}
+
+function hideWeChatQR() {
+  const modal = document.getElementById('wechatModal');
+  if (modal) {
+    modal.classList.remove('show');
+    document.body.style.overflow = ''; // Restore scrolling
+  }
+}
+
+// Export WeChat functions for global use
+window.showWeChatQR = showWeChatQR;
+window.hideWeChatQR = hideWeChatQR;
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    hideWeChatQR();
+  }
+});

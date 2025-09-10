@@ -5,11 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Miss Li - 个人品牌官网 | Personal Brand Website</title>
   
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👩‍🏫</text></svg>">
+  
   <!-- External Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Bebas+Neue&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <!-- EmailJS -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   
   <!-- Custom Styles -->
   <link rel="stylesheet" href="css/style.css">
@@ -372,10 +378,14 @@
       <!-- Contact Form -->
       <div class="contact-form">
         <h3 style="text-align: center; margin-bottom: 30px; color: var(--gold);">📞 在线预约 Book a Session</h3>
-        <form>
+        
+        <!-- Status Message -->
+        <div id="form-status" class="form-status" style="display: none;"></div>
+        
+        <form id="contact-form">
           <div class="form-group">
             <label for="name">姓名 Name *</label>
-            <input type="text" id="name" name="name" placeholder="请输入您的姓名 / Please enter your name" required>
+            <input type="text" id="name" name="from_name" placeholder="请输入您的姓名 / Please enter your name" required>
           </div>
           <div class="form-group">
             <label for="phone">电话 Phone *</label>
@@ -383,46 +393,47 @@
           </div>
           <div class="form-group">
             <label for="email">邮箱 Email</label>
-            <input type="email" id="email" name="email" placeholder="请输入您的邮箱 / Please enter your email">
+            <input type="email" id="email" name="from_email" placeholder="请输入您的邮箱 / Please enter your email">
           </div>
           <div class="form-group">
             <label for="service">服务类型 Service Type *</label>
-            <select id="service" name="service" style="width: 100%; padding: 15px; border: 2px solid rgba(255, 255, 255, 0.2); border-radius: 10px; background: rgba(255, 255, 255, 0.1); color: var(--white); font-size: 1rem;">
+            <select id="service" name="service">
               <option value="">请选择服务类型 / Please select service type</option>
-              <option value="courses">英语课程培训 / English Courses</option>
-              <option value="tutoring">私教服务 / Private Tutoring</option>
-              <option value="memory-books">纪念册定制 / Memory Books</option>
-              <option value="videos">视频定制 / Video Production</option>
-              <option value="consulting">出海咨询 / Global Consulting</option>
+              <option value="英语课程培训 / English Courses">英语课程培训 / English Courses</option>
+              <option value="私教服务 / Private Tutoring">私教服务 / Private Tutoring</option>
+              <option value="纪念册定制 / Memory Books">纪念册定制 / Memory Books</option>
+              <option value="视频定制 / Video Production">视频定制 / Video Production</option>
+              <option value="出海咨询 / Global Consulting">出海咨询 / Global Consulting</option>
             </select>
           </div>
           <div class="form-group">
             <label for="message">留言 Message</label>
             <textarea id="message" name="message" rows="4" placeholder="请描述您的需求或问题 / Please describe your needs or questions"></textarea>
           </div>
-          <button type="submit" class="btn btn-gold" style="width: 100%; margin-top: 20px;">
+          <button type="submit" id="submit-btn" class="btn btn-gold" style="width: 100%; margin-top: 20px;">
             <i class="fas fa-paper-plane"></i>
-            提交预约 Submit Booking
+            <span id="submit-text">提交预约 Submit Booking</span>
           </button>
         </form>
       </div>
       
       <!-- Contact Info -->
       <div class="contact-info">
-        <div class="contact-item">
+        <div class="contact-item" onclick="showWeChatQR()" style="cursor: pointer;">
           <i class="fab fa-weixin"></i>
           <h4>微信 WeChat</h4>
           <p>MissLi_English</p>
+          <small style="color: var(--gold); font-size: 0.8rem;">点击扫码添加 Click to scan QR</small>
         </div>
         <div class="contact-item">
           <i class="fas fa-envelope"></i>
           <h4>邮箱 Email</h4>
-          <p>contact@missli.com</p>
+          <p>smlshangwuyingyu@soulmately.info</p>
         </div>
         <div class="contact-item">
           <i class="fas fa-phone"></i>
           <h4>电话 Phone</h4>
-          <p>+86 138-0000-0000</p>
+          <p>19512577088</p>
         </div>
       </div>
     </div>
@@ -438,6 +449,16 @@
       </p>
     </div>
   </footer>
+
+  <!-- WeChat QR Code Modal -->
+  <div id="wechatModal" class="wechat-modal" onclick="hideWeChatQR()">
+    <div class="wechat-modal-content" onclick="event.stopPropagation()">
+      <span class="close-btn" onclick="hideWeChatQR()">&times;</span>
+      <h3 style="text-align: center; margin-bottom: 20px; color: var(--gold);">扫码添加微信 Scan QR Code</h3>
+      <img src="images/contact/wechat.jpg" alt="WeChat QR Code" style="width: 100%; max-width: 300px; height: auto; border-radius: 15px;">
+      <p style="text-align: center; margin-top: 15px; color: var(--light-purple); font-size: 0.9rem;">使用微信扫一扫上方二维码添加好友<br>Use WeChat to scan the QR code above</p>
+    </div>
+  </div>
 
   <!-- JavaScript -->
   <script src="js/main.js"></script>
