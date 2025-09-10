@@ -241,6 +241,15 @@ function loadProfileImages() {
 
 // Initialize all features when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
+  // Ensure WeChat modal is hidden on page load
+  const wechatModal = document.getElementById('wechatModal');
+  if (wechatModal) {
+    wechatModal.style.display = 'none';
+    wechatModal.style.opacity = '0';
+    wechatModal.style.visibility = 'hidden';
+    wechatModal.classList.remove('show');
+  }
+  
   // Mobile menu event listener
   const mobileMenuBtn = document.querySelector('.mobile-menu');
   if (mobileMenuBtn) {
@@ -306,4 +315,17 @@ document.addEventListener('keydown', function(event) {
   if (event.key === 'Escape') {
     hideWeChatQR();
   }
+});
+
+// Additional safety check for GitHub Pages deployment
+window.addEventListener('load', function() {
+  // Double-check modal is hidden after all resources load
+  setTimeout(function() {
+    const wechatModal = document.getElementById('wechatModal');
+    if (wechatModal && !wechatModal.classList.contains('show')) {
+      wechatModal.style.display = 'none';
+      wechatModal.style.opacity = '0';
+      wechatModal.style.visibility = 'hidden';
+    }
+  }, 100);
 });
