@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Miss Li - 个人品牌官网 | Personal Brand Website</title>
+  
+  <!-- External Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Bebas+Neue&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <a href="#" class="logo">MISS LI</a>
+      <ul class="nav-links">
+        <li><a href="#courses">课程培训 Courses</a></li>
+        <li><a href="#tutoring">私教服务 Private</a></li>
+        <li><a href="#memory-books">纪念册 Memory</a></li>
+        <li><a href="#videos">视频定制 Video</a></li>
+        <li><a href="#consulting">出海咨询 Global</a></li>
+        <li><a href="#about">关于我 About</a></li>
+        <li><a href="#contact">联系 Contact</a></li>
+      </ul>
+      <div class="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="profile-image">
+          <div class="image-container">
+            <div class="placeholder-text">专业形象照片</div>
+            <div class="golden-ring"></div>
+          </div>
+        </div>
+        <div class="hero-text">
+          <h1 class="hero-title">
+            <span class="main-title">解锁你的国际沟通力</span>
+            <span class="sub-title">UNLOCK YOUR GLOBAL COMMUNICATION POWER</span>
+          </h1>
+          <p class="hero-description">
+            专业英语培训 · 个人品牌塑造 · 企业出海咨询<br>
+            <em>Professional English Training · Personal Branding · Global Business Consulting</em>
+          </p>
+          <div class="cta-buttons">
+            <button class="btn btn-primary" onclick="scrollToSection('contact')">
+              <i class="fas fa-calendar-alt"></i>
+              预约试听 Book Trial
+            </button>
+            <button class="btn btn-secondary" onclick="scrollToSection('courses')">
+              <i class="fas fa-graduation-cap"></i>
+              课程介绍 Courses
+            </button>
+            <button class="btn btn-accent" onclick="scrollToSection('memory-books')">
+              <i class="fas fa-book"></i>
+              纪念册定制 Memory Books
+            </button>
+            <button class="btn btn-gold" onclick="scrollToSection('consulting')">
+              <i class="fas fa-globe"></i>
+              出海咨询 Global Consulting
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <div class="scroll-arrow"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Courses Section -->
+  <section id="courses" class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>英文商务口语核心课程</h2>
+        <h3 style="color: var(--silver); font-size: 1.3rem; margin-top: 10px;">Core English Training Camps</h3>
+        <p>专业的英语培训课程，助您提升国际沟通能力</p>
+      </div>
+      <div class="card-container">
+        <div class="card">
+          <div class="card-icon">
+            <i class="fas fa-microphone"></i>
+          </div>
+          <div class="card-title">21天商务英语开口训练营</div>
+          <div class="card-subtitle">21-Day Business English Speaking Bootcamp</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">
+            <i class="fas fa-globe-americas"></i>
+          </div>
+          <div class="card-title">21天外贸技巧实战训练营</div>
+          <div class="card-subtitle">21-Day Foreign Trade Skills Bootcamp</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">
+            <i class="fas fa-headphones"></i>
+          </div>
+          <div class="card-title">雅思听口特训营</div>
+          <div class="card-subtitle">IELTS Listening & Speaking Intensive</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <div class="card-title">商务谈判与销售技能实战营</div>
+          <div class="card-subtitle">Business Negotiation & Sales Skills Camp</div>
+        </div>
+      </div>
+      
+      <!-- Bonus Courses -->
+      <div style="margin-top: 60px;">
+        <h3 style="color: var(--gold); text-align: center; margin-bottom: 30px;">🔸 辅助内容 Additional Content</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+          <div style="background: rgba(255, 215, 0, 0.1); padding: 20px; border-radius: 15px; text-align: center; border: 1px solid var(--gold);">
+            <h4>0元赠课</h4>
+            <p style="color: var(--silver); font-size: 0.9rem;">Free Bonus Courses</p>
+            <small>知识拓展课程</small>
+          </div>
+          <div style="background: rgba(147, 112, 219, 0.1); padding: 20px; border-radius: 15px; text-align: center; border: 1px solid var(--secondary-purple);">
+            <h4>99元选修课</h4>
+            <p style="color: var(--silver); font-size: 0.9rem;">Elective Skills Training</p>
+            <small>合作系列课程</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Private Tutoring Section -->
+  <section id="tutoring" class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>私教服务</h2>
+        <h3 style="color: var(--silver); font-size: 1.3rem; margin-top: 10px;">Private Tutoring</h3>
+        <p>个性化定制教学，高端私人定制服务</p>
+      </div>
+      <div class="card-container">
+        <div class="card" style="background: linear-gradient(145deg, rgba(128, 0, 128, 0.3), rgba(75, 0, 130, 0.2)); border: 2px solid var(--gold);">
+          <div class="card-icon" style="background: linear-gradient(45deg, var(--gold), #8B0000);">
+            <i class="fas fa-crown"></i>
+          </div>
+          <div class="card-title">一对一外教定制</div>
+          <div class="card-subtitle">One-on-One Private Tutoring</div>
+          <div style="color: var(--gold); font-size: 0.8rem; margin-top: 10px;">VIP 专属服务</div>
+        </div>
+        <div class="card" style="background: linear-gradient(145deg, rgba(106, 90, 205, 0.3), rgba(147, 112, 219, 0.2));">
+          <div class="card-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="card-title">一对多小班课</div>
+          <div class="card-subtitle">Small Group Tutoring</div>
+          <div style="color: var(--silver); font-size: 0.8rem; margin-top: 10px;">精品小班</div>
+        </div>
+        <div class="card" style="background: linear-gradient(145deg, rgba(72, 61, 139, 0.3), rgba(106, 90, 205, 0.2));">
+          <div class="card-icon">
+            <i class="fas fa-baby"></i>
+          </div>
+          <div class="card-title">英语启蒙 & 零基础</div>
+          <div class="card-subtitle">English for Beginners</div>
+        </div>
+        <div class="card" style="background: linear-gradient(145deg, rgba(25, 25, 112, 0.3), rgba(72, 61, 139, 0.2));">
+          <div class="card-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <div class="card-title">中高考英语提升</div>
+          <div class="card-subtitle">Exam-Oriented Training</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Memory Books Section -->
+  <section id="memory-books" class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>纪念册定制</h2>
+        <h3 style="color: var(--silver); font-size: 1.3rem; margin-top: 10px;">Memory Book Customization</h3>
+        <p>珍藏美好回忆，传承珍贵的人生故事</p>
+      </div>
+      <div class="card-container">
+        <div class="card memory-book-card">
+          <div class="card-icon" style="background: linear-gradient(45deg, var(--secondary-purple), var(--primary-purple));">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="card-title">个人/家族/企业定制</div>
+          <div class="card-subtitle">Personal, Family & Corporate Editions</div>
+        </div>
+        <div class="card memory-book-card">
+          <div class="card-icon" style="background: linear-gradient(45deg, var(--secondary-purple), var(--primary-purple));">
+            <i class="fas fa-user-circle"></i>
+          </div>
+          <div class="card-title">个人回忆录</div>
+          <div class="card-subtitle">Personal Memoirs</div>
+        </div>
+        <div class="card memory-book-card">
+          <div class="card-icon" style="background: linear-gradient(45deg, var(--secondary-purple), var(--primary-purple));">
+            <i class="fas fa-home"></i>
+          </div>
+          <div class="card-title">家族传承书</div>
+          <div class="card-subtitle">Family Heritage</div>
+        </div>
+        <div class="card memory-book-card">
+          <div class="card-icon" style="background: linear-gradient(45deg, var(--secondary-purple), var(--primary-purple));">
+            <i class="fas fa-building"></i>
+          </div>
+          <div class="card-title">企业发展史</div>
+          <div class="card-subtitle">Corporate History</div>
+        </div>
+        <div class="card memory-book-card">
+          <div class="card-icon" style="background: linear-gradient(45deg, var(--secondary-purple), var(--primary-purple));">
+            <i class="fas fa-layer-group"></i>
+          </div>
+          <div class="card-title">主题合集</div>
+          <div class="card-subtitle">Special Collections</div>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 40px; padding: 30px; background: rgba(255, 215, 0, 0.1); border-radius: 15px; border: 1px solid var(--gold);">
+        <p style="color: var(--gold); font-size: 1.1rem; margin: 0;">📚 精美装帧 · 专业设计 · 高端定制 · 传承珍藏</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Videos & Portfolios Section -->
+  <section id="videos" class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>视频与作品定制</h2>
+        <h3 style="color: var(--silver); font-size: 1.3rem; margin-top: 10px;">Video & Portfolio Customization</h3>
+        <p>专业影像制作，打造独特的视觉体验</p>
+      </div>
+      <div class="card-container">
+        <div class="card video-card">
+          <div class="card-icon" style="background: linear-gradient(45deg, var(--gold), #FF6347);">
+            <i class="fas fa-video"></i>
+          </div>
+          <div class="card-title">个人宣传片</div>
+          <div class="card-subtitle">Personal Promo Video</div>
+        </div>
+        <div class="card video-card">
+          <div class="card-icon" style="background: linear-gradient(45deg, var(--gold), #FF6347);">
+            <i class="fas fa-building"></i>
+          </div>
+          <div class="card-title">企业宣传片</div>
+          <div class="card-subtitle">Corporate Promo Video</div>
+        </div>
+        <div class="card video-card">
+          <div class="card-icon" style="background: linear-gradient(45deg, var(--gold), #FF6347);">
+            <i class="fas fa-memory"></i>
+          </div>
+          <div class="card-title">视频回忆录</div>
+          <div class="card-subtitle">Video Memories</div>
+        </div>
+        <div class="card video-card">
+          <div class="card-icon" style="background: linear-gradient(45deg, var(--gold), #FF6347);">
+            <i class="fas fa-film"></i>
+          </div>
+          <div class="card-title">微电影</div>
+          <div class="card-subtitle">Microfilm</div>
+        </div>
+        <div class="card video-card">
+          <div class="card-icon" style="background: linear-gradient(45deg, var(--gold), #FF6347);">
+            <i class="fas fa-folder-open"></i>
+          </div>
+          <div class="card-title">作品集定制</div>
+          <div class="card-subtitle">Portfolio Collections</div>
+        </div>
+      </div>
+      <div style="margin-top: 40px; text-align: center;">
+        <p style="color: var(--light-purple); font-size: 0.95rem;">🎥 摄影 · 绘画 · 同学录 · 读书会合集</p>
+        <p style="color: var(--silver); font-size: 0.9rem; font-style: italic;">Photography · Painting · Class Albums · Book Club Collections</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Global Business Consulting Section -->
+  <section id="consulting" class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>企业出海咨询</h2>
+        <h3 style="color: var(--silver); font-size: 1.3rem; margin-top: 10px;">Global Business Consulting</h3>
+        <p>全球化业务布局，助力企业走向世界</p>
+      </div>
+      <div class="card-container">
+        <div class="card consulting-card">
+          <div class="card-icon" style="background: linear-gradient(45deg, var(--secondary-purple), var(--primary-purple));">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <div class="card-title">海外投资指导</div>
+          <div class="card-subtitle">Overseas Investment Guidance</div>
+        </div>
+        <div class="card consulting-card">
+          <div class="card-icon" style="background: linear-gradient(45deg, var(--secondary-purple), var(--primary-purple));">
+            <i class="fas fa-globe-americas"></i>
+          </div>
+          <div class="card-title">跨国企业落地</div>
+          <div class="card-subtitle">Company Setup Abroad</div>
+        </div>
+        <div class="card consulting-card">
+          <div class="card-icon" style="background: linear-gradient(45deg, var(--secondary-purple), var(--primary-purple));">
+            <i class="fas fa-passport"></i>
+          </div>
+          <div class="card-title">国际移民咨询</div>
+          <div class="card-subtitle">Immigration Advisory</div>
+        </div>
+        <div class="card consulting-card">
+          <div class="card-icon" style="background: linear-gradient(45deg, var(--secondary-purple), var(--primary-purple));">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <div class="card-title">海外资源对接</div>
+          <div class="card-subtitle">Global Networking & Resources</div>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 40px; padding: 30px; background: linear-gradient(135deg, rgba(25, 25, 112, 0.3), rgba(72, 61, 139, 0.2)); border-radius: 15px; border: 1px solid var(--secondary-purple);">
+        <h4 style="color: var(--gold); margin-bottom: 15px;">🌍 全球布局 · 专业服务</h4>
+        <p style="color: var(--white); margin: 0; line-height: 1.6;">从战略规划到落地执行，为您的全球化业务提供一站式解决方案</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>关于我</h2>
+        <h3 style="color: var(--silver); font-size: 1.3rem; margin-top: 10px;">About Me</h3>
+        <p>专业背景与资历展示</p>
+      </div>
+      <div class="about-content">
+        <div class="about-image">
+          <div style="color: var(--light-purple); font-size: 1rem; text-align: center;">个人专业形象照片</div>
+        </div>
+        <div class="about-text">
+          <h3>🌆 个人介绍 Profile</h3>
+          <p>专业英语培训师，拥有丰富的国际教育经验和企业咨询背景，致力于帮助个人和企业提升国际沟通能力。</p>
+          
+          <h3>🏆 背景与资历 Qualifications & Achievements</h3>
+          <p>· 国际认证英语教学证书<br>
+          · 多年海外工作经验<br>
+          · 企业培训专家<br>
+          · 跨文化沟通专家</p>
+          
+          <h3>🤝 合作伙伴/荣誉 Partners & Honors</h3>
+          <p>与多家知名企业建立长期合作关系，获得业内众多荣誉认可，拥有丰富的成功案例和学员反馈。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>联系方式</h2>
+        <h3 style="color: var(--silver); font-size: 1.3rem; margin-top: 10px;">Contact</h3>
+        <p>联系我们，开启您的国际化之旅</p>
+      </div>
+      
+      <!-- Contact Form -->
+      <div class="contact-form">
+        <h3 style="text-align: center; margin-bottom: 30px; color: var(--gold);">📞 在线预约 Book a Session</h3>
+        <form>
+          <div class="form-group">
+            <label for="name">姓名 Name *</label>
+            <input type="text" id="name" name="name" placeholder="请输入您的姓名 / Please enter your name" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">电话 Phone *</label>
+            <input type="tel" id="phone" name="phone" placeholder="请输入您的电话号码 / Please enter your phone number" required>
+          </div>
+          <div class="form-group">
+            <label for="email">邮箱 Email</label>
+            <input type="email" id="email" name="email" placeholder="请输入您的邮箱 / Please enter your email">
+          </div>
+          <div class="form-group">
+            <label for="service">服务类型 Service Type *</label>
+            <select id="service" name="service" style="width: 100%; padding: 15px; border: 2px solid rgba(255, 255, 255, 0.2); border-radius: 10px; background: rgba(255, 255, 255, 0.1); color: var(--white); font-size: 1rem;">
+              <option value="">请选择服务类型 / Please select service type</option>
+              <option value="courses">英语课程培训 / English Courses</option>
+              <option value="tutoring">私教服务 / Private Tutoring</option>
+              <option value="memory-books">纪念册定制 / Memory Books</option>
+              <option value="videos">视频定制 / Video Production</option>
+              <option value="consulting">出海咨询 / Global Consulting</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">留言 Message</label>
+            <textarea id="message" name="message" rows="4" placeholder="请描述您的需求或问题 / Please describe your needs or questions"></textarea>
+          </div>
+          <button type="submit" class="btn btn-gold" style="width: 100%; margin-top: 20px;">
+            <i class="fas fa-paper-plane"></i>
+            提交预约 Submit Booking
+          </button>
+        </form>
+      </div>
+      
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class="fab fa-weixin"></i>
+          <h4>微信 WeChat</h4>
+          <p>MissLi_English</p>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <h4>邮箱 Email</h4>
+          <p>contact@missli.com</p>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <h4>电话 Phone</h4>
+          <p>+86 138-0000-0000</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Miss Li Personal Brand. 保留所有权利 All Rights Reserved.</p>
+      <p style="margin-top: 10px; color: var(--silver); font-size: 0.9rem;">
+        专业英语培训 · 个人品牌塑造 · 企业出海咨询<br>
+        Professional English Training · Personal Branding · Global Business Consulting
+      </p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+</html>
